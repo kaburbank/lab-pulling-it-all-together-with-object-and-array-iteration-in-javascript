@@ -113,4 +113,83 @@ function gameObject() {
             },
         },
     };
-}
+};
+
+function numPointsScored(playerName) {
+    const game = gameObject();
+    for (const teamKey in game) {
+        const team = game[teamKey];
+        if (playerName in team.players) {
+            return team.players[playerName].points;
+        }
+    }
+    return null;
+};
+
+function shoeSize(playerName) {
+    const game = gameObject();
+    for (const teamKey in game) {
+        const team = game[teamKey];
+        if (playerName in team.players) {
+            return team.players[playerName].shoe;
+        }
+    }
+    return null;
+};
+
+function teamColors(teamName) {
+    const game = gameObject();
+    for (const teamKey in game) {
+        const team = game[teamKey];
+        if (team.teamName === teamName) {
+            return team.colors;
+        }
+    }
+    return null;
+};
+
+function teamNames() {
+    const game = gameObject();
+    return [game.home.teamName, game.away.teamName];
+};
+
+function playerNumbers(teamName) {
+    const game = gameObject();
+    for (const teamKey in game) {
+        const team = game[teamKey];
+        if (team.teamName === teamName) {
+            return Object.values(team.players).map(player => player.number);
+        }
+    }
+    return null;
+};
+
+function playerStats(playerName) {
+    const game = gameObject();
+    for (const teamKey in game) {
+        const team = game[teamKey];
+        if (playerName in team.players) {
+            return team.players[playerName];
+        }
+    }
+    return null;
+};
+
+
+function bigShoeRebounds () {
+    const game = gameObject();
+    let biggestShoeSize = 0;
+    let rebounds = 0;
+
+    for (const teamKey in game) {
+        const team = game[teamKey];
+        for (const playerName in team.players) {
+            const player = team.players[playerName];
+            if (player.shoe > biggestShoeSize) {
+                biggestShoeSize = player.shoe;
+                rebounds = player.rebounds;
+            }
+        }
+    }
+    return rebounds;
+};

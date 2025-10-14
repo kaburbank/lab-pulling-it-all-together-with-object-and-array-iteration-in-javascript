@@ -121,8 +121,8 @@ function numPointsScored(playerName) {
         const team = game[teamKey];
         if (playerName in team.players) {
             return team.players[playerName].points;
-        }
-    }
+        };
+    };
     return null;
 };
 
@@ -132,8 +132,8 @@ function shoeSize(playerName) {
         const team = game[teamKey];
         if (playerName in team.players) {
             return team.players[playerName].shoe;
-        }
-    }
+        };
+    };
     return null;
 };
 
@@ -143,8 +143,8 @@ function teamColors(teamName) {
         const team = game[teamKey];
         if (team.teamName === teamName) {
             return team.colors;
-        }
-    }
+        };
+    };
     return null;
 };
 
@@ -159,8 +159,8 @@ function playerNumbers(teamName) {
         const team = game[teamKey];
         if (team.teamName === teamName) {
             return Object.values(team.players).map(player => player.number);
-        }
-    }
+        };
+    };
     return null;
 };
 
@@ -170,8 +170,8 @@ function playerStats(playerName) {
         const team = game[teamKey];
         if (playerName in team.players) {
             return team.players[playerName];
-        }
-    }
+        };
+    };
     return null;
 };
 
@@ -188,8 +188,8 @@ function bigShoeRebounds () {
             if (player.shoe > biggestShoeSize) {
                 biggestShoeSize = player.shoe;
                 rebounds = player.rebounds;
-            }
-        }
-    }
+            };
+        };
+    };
     return rebounds;
 };

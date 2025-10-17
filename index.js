@@ -115,76 +115,83 @@ function gameObject() {
     };
 };
 
+// function to  takes a player’s name and returns their points scored.
 function numPointsScored(playerName) {
     const game = gameObject();
-    for (const teamKey in game) {
-        const team = game[teamKey];
-        if (playerName in team.players) {
-            return team.players[playerName].points;
+    for (const key in game) {
+        const teams = game[key];
+        if (playerName in teams.players) {
+            return teams.players[playerName].points;
         };
     };
     return null;
 };
 
+
+// function to takes a player’s name as input and returns their shoe size.
 function shoeSize(playerName) {
     const game = gameObject();
-    for (const teamKey in game) {
-        const team = game[teamKey];
-        if (playerName in team.players) {
-            return team.players[playerName].shoe;
+    for (const key in game) {
+        const teams = game[key];
+        if (playerName in teams.players) {
+            return teams.players[playerName].shoe;
         };
     };
     return null;
 };
 
+//function to take a team name as input and returns an array of the team’s colors.
 function teamColors(teamName) {
     const game = gameObject();
-    for (const teamKey in game) {
-        const team = game[teamKey];
-        if (team.teamName === teamName) {
-            return team.colors;
+    for (const key in game) {
+        const teams = game[key];
+        if (teams.teamName === teamName) {
+            return teams.colors;
         };
     };
     return null;
 };
 
+// function to return an array of both team names.
 function teamNames() {
     const game = gameObject();
     return [game.home.teamName, game.away.teamName];
 };
 
+// function to take a team name as input and returns an array of all players’ jersey numbers on that team
 function playerNumbers(teamName) {
     const game = gameObject();
-    for (const teamKey in game) {
-        const team = game[teamKey];
-        if (team.teamName === teamName) {
-            return Object.values(team.players).map(player => player.number);
+    for (const key in game) {
+        const teams = game[key];
+        if (teams.teamName === teamName) {
+            return Object.values(teams.players).map(player => player.number);
         };
     };
     return null;
 };
 
+// function to take a player’s name as input and returns an object with all stats for that player.
 function playerStats(playerName) {
     const game = gameObject();
-    for (const teamKey in game) {
-        const team = game[teamKey];
-        if (playerName in team.players) {
-            return team.players[playerName];
+    for (const key in game) {
+        const teams = game[key];
+        if (playerName in teams.players) {
+            return teams.players[playerName];
         };
     };
     return null;
 };
 
-
+//function to return the number of rebounds for the player with the largest shoe size.
 function bigShoeRebounds () {
     const game = gameObject();
     let biggestShoeSize = 0;
     let rebounds = 0;
 
-    for (const teamKey in game) {
-        const team = game[teamKey];
-        for (const playerName in team.players) {
-            const player = team.players[playerName];
+    for (const key in game) {
+        const teams = game[key];
+        for (const playerName in teams.players) {
+            const player = teams.players[playerName];
             if (player.shoe > biggestShoeSize) {
                 biggestShoeSize = player.shoe;
                 rebounds = player.rebounds;
@@ -193,3 +200,9 @@ function bigShoeRebounds () {
     };
     return rebounds;
 };
+
+//function mostPointsScored() to determine which player scored the most points.
+
+//function winningTeam() to identifie which team has the most total points.
+
+//function playerWithLongestName() to find the player with the longest name.

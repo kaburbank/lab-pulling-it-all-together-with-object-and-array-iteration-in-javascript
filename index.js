@@ -187,7 +187,6 @@ function bigShoeRebounds () {
     const game = gameObject();
     let biggestShoeSize = 0;
     let rebounds = 0;
-
     for (const key in game) {
         const teams = game[key];
         for (const playerName in teams.players) {

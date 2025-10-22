@@ -202,7 +202,24 @@ function bigShoeRebounds () {
 };
 
 //function mostPointsScored() to determine which player scored the most points.
+function mostPointsScored() {
+    const game = gameObject();
+    let maxPoints = 0;
+    let topPlayer = "";
+    for (let key in game) {
+        const team = game[key];
+        const players = team.players;
+        for (let player in players) {
+            const points = players[player].points;
+            if (points > maxPoints) {
+                maxPoints = points;
+                topPlayer = player;
+            };
+        };
+    };
+    return topPlayer;
+}
 
-//function winningTeam() to identifie which team has the most total points.
+//function winningTeam() to identifies which team has the most total points.
 
 //function playerWithLongestName() to find the player with the longest name.

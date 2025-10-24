@@ -227,10 +227,10 @@ function winningTeam() {
     let awayPoints = 0;
     for (let player in game.home.players) {
         homePoints += game.home.players[player].points;
-    }
+    };
     for (let player in game.away.players) {
         awayPoints += game.away.players[player].points;
-    }
+    };
     if (homePoints > awayPoints) {
         return game.home.teamName;
     } else if (awayPoints > homePoints) {

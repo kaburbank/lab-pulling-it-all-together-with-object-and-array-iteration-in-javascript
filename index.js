@@ -201,7 +201,7 @@ function bigShoeRebounds () {
     return rebounds;
 };
 
-//function mostPointsScored() to determine which player scored the most points.
+//function mostPointsScored() to determine which player scored the most points
 function mostPointsScored() {
     const game = gameObject();
     let maxPoints = 0;
@@ -218,8 +218,25 @@ function mostPointsScored() {
         };
     };
     return topPlayer;
-}
+};
 
 //function winningTeam() to identifies which team has the most total points.
+function winningTeam() {
+    const game = gameObject();
+    let homePoints = 0;
+    let awayPoints = 0;
+    for (let player in game.home.players) {
+        homePoints += game.home.players[player].points;
+    }
+    for (let player in game.away.players) {
+        awayPoints += game.away.players[player].points;
+    }
+    if (homePoints > awayPoints) {
+        return game.home.teamName;
+    } else if (awayPoints > homePoints) {
+        return game.away.teamName;
+    } else {
+        return "Tie";
+    };
+};
 
-//function playerWithLongestName() to find the player with the longest name.
